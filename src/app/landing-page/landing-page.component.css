@@ -1,0 +1,9 @@
+.section-hero {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 600px;
+    border: 2px solid red;
+    z-index: 4;
+    
+}

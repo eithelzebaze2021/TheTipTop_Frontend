@@ -1,0 +1,39 @@
+.logo {
+    width: 80px;
+}
+
+.btn-login {
+    background-color: var(--dark-moss-green);
+    color: var(--baby-powder) !important;
+    border-radius: 50px;
+    border: 1px solid var(--dark-moss-green);
+    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    text-align: center;
+    transform: translateY(0);
+    transition: transform 150ms, box-shadow 150ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.btn-login:hover {
+    background-color: var(--apple-green);
+}
+
+.navbar {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navbar-collapse {
+    flex-grow: 0;
+    background-color: var(--baby-powder);
+}
+
+.navbar-toggler:focus {
+    box-shadow: unset !important;
+}
