@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {ApiService} from "./ApiService";
 
-@Injectable ({
-    providedIn: 'root'
-})
+@Injectable()
+export class EmployeService extends ApiService{
 
-export class EmployeService{
+  constructor(protected override httpClient:HttpClient) {
+    super(httpClient);
+  }
 
 }

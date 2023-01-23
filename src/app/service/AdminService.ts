@@ -3,7 +3,7 @@ import {ApiService} from "./ApiService";
 import {HttpClient} from "@angular/common/http";
 
 @Injectable()
-export class UserService extends ApiService{
+export class AdminService extends ApiService{
 
   constructor(protected override httpClient:HttpClient) {
     super(httpClient);

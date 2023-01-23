@@ -7,12 +7,4 @@ export class Magasin{
     nom_magasin: string ="";
     list_ticket: Ticket[] =[];
 
-    constructor(idMagasin: number, adresseMagasin: string, codePostal: string, nomMagasin: string, listTicket: Ticket[]){
-        this.id_magasin= idMagasin;
-        this.adresse= adresseMagasin;
-        this.code_postal= codePostal;
-        this.nom_magasin= nomMagasin;
-        this.list_ticket= listTicket;
-
-    }
 }
