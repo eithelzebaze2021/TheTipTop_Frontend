@@ -6,7 +6,7 @@ export class Employe{
     magasin_employe: Magasin = new Magasin();
     user_employe: Utilisateur = new Utilisateur();
 
-    constructor(idEmploye: number, magasinEmploye: Magasin, userEmploye: Utilisateur){
+    constructor(idEmploye: number, magasinEmploye: Magasin, userEmploye: Utilisateur[]){
         this.id_employe= idEmploye;
         this.magasin_employe= magasinEmploye;
         this.user_employe= userEmploye;
