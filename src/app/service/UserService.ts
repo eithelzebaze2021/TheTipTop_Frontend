@@ -9,4 +9,8 @@ export class UserService extends ApiService{
     super(httpClient);
   }
 
+  getAllUser(){
+    return this.httpClient.get(this.host+"api-tip-top-G1/user/getAllUser",this.httpOptions)
+  }
+
 }
