@@ -16,11 +16,16 @@ export class EmployeService extends ApiService{
   }
 
   getEmployeById(idEmploye: number){
-    return this.httpClient.get(this.host+"employe/getEmployeById"+idEmploye, this.httpOptions)
+    return this.httpClient.get(this.host+"employe/getEmployeById/"+idEmploye, this.httpOptions)
   }
 
   saveEmploye(E:Employe){
     return this.httpClient.post(this.host+"employe/saveEmploye",E, this.httpOptions)
+  }
+
+  deleteEmploye(idEmploye: number){
+    return this.httpClient.delete(this.host+"employe/deleteEmployeById/"+idEmploye, this.httpOptions)
+
   }
 
 }

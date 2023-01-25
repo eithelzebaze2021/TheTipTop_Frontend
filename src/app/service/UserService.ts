@@ -23,5 +23,9 @@ export class UserService extends ApiService{
     return this.httpClient.post(this.host+"user/saveUser",U, this.httpOptions)
   }
 
+  updateUser(U: Utilisateur){
+    return this.httpClient.put(this.host+"user/updateUser",U,this.httpOptions)
+  }
+
 
 }

@@ -15,11 +15,15 @@ export class AdminService extends ApiService{
   }
 
   getMagasinById(idMagasin: number){
-    return this.httpClient.get(this.host+"magasin/getMagasinById"+idMagasin, this.httpOptions)
+    return this.httpClient.get(this.host+"magasin/getMagasinById/"+idMagasin, this.httpOptions)
   }
 
   saveMagasin(M: Magasin){
     return this.httpClient.post(this.host+"magasin/saveMagasin",M, this.httpOptions)
+  }
+
+  deleteMagasin(idMagasin: number){
+    return this.httpClient.delete(this.host+"magasin/deleteMagasin/"+idMagasin, this.httpOptions)
   }
 
 }
