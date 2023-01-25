@@ -16,6 +16,8 @@ import {ClientGainComponent} from "./client-gain/client-gain.component";
 import {ClientTicketComponent} from "./client-ticket/client-ticket.component";
 import {AdminEmployesComponent} from "./admin-employes/admin-employes.component";
 import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
+import { MentionsLegalesComponent } from './pages/mentions-legales/mentions-legales.component';
+import { CguComponent } from './pages/cgu/cgu.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -25,6 +27,8 @@ const appRoutes: Routes = [
   { path: 'Employe/client',component: EmployeClientComponent},
   { path: 'Admin/employes',component: AdminEmployesComponent},
   { path: 'Admin/clients',component: AdminClientsComponent},
+  { path: 'cgu',component: CguComponent},
+  { path: 'mentions-legales',component: MentionsLegalesComponent},
 ]
 
 @NgModule({
@@ -38,10 +42,13 @@ const appRoutes: Routes = [
     EmployeClientComponent,
     AdminEmployesComponent,
     AdminClientsComponent,
-    LoginComponent
+    LoginComponent,
+    MentionsLegalesComponent,
+    CguComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+  
   ],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService,
   { provide: LOCALE_ID, useValue: 'fr-FR'}],
