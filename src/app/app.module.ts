@@ -6,7 +6,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { LoginComponent } from './login/login.component';
-import {Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
 import {ClientService} from "./service/ClientService";
 import {EmployeService} from "./service/EmployeService";
 import {UserService} from "./service/UserService";
@@ -48,8 +48,10 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    RouterModule.forRoot(appRoutes)
   
   ],
+  exports: [RouterModule],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService,
   { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
