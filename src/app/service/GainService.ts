@@ -10,15 +10,15 @@ export class GainService extends ApiService{
   }
 
   getAllGain(){
-    return this.httpClient.get(this.host+"user/getAllGain", this.httpOptions)
+    return this.httpClient.get(this.host+"gain/getAllGain", this.httpOptions)
   }
 
   getGainById(idGain: number){
-    return this.httpClient.get(this.host+"user/getGainById"+idGain, this.httpOptions)
+    return this.httpClient.get(this.host+"gain/getGainById"+idGain, this.httpOptions)
   }
 
   saveGain(G: Gain){
-    return this.httpClient.post(this.host+"user/saveGain",G, this.httpOptions)
+    return this.httpClient.post(this.host+"gain/saveGain",G, this.httpOptions)
 
   }
 }
