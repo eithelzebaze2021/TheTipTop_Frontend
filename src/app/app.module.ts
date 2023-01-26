@@ -21,7 +21,7 @@ import { CguComponent } from './pages/cgu/cgu.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
-  { path: 'Login',component: LoginComponent},
+  { path: 'login',component: LoginComponent},
   { path: 'Client/ticket',component: ClientTicketComponent},
   { path: 'Client/gain',component: ClientGainComponent},
   { path: 'Employe/client',component: EmployeClientComponent},
