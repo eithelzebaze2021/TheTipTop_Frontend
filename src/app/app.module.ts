@@ -16,6 +16,8 @@ import {ClientGainComponent} from "./client-gain/client-gain.component";
 import {ClientTicketComponent} from "./client-ticket/client-ticket.component";
 import {AdminEmployesComponent} from "./admin-employes/admin-employes.component";
 import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
+import {GainService} from "./service/GainService";
+import {AdminService} from "./service/AdminService";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule
   ],
-  providers: [ ClientService, EmployeService, UserService, VerifyGuardService,
+  providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
   { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
