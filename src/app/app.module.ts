@@ -24,6 +24,8 @@ import * as fr from '@angular/common/locales/fr';
 import { PolitiqueCookiesComponent } from './pages/politique-cookies/politique-cookies.component';
 import { DonneesPersonnellesComponent } from './pages/donnees-personnelles/donnees-personnelles.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import {GainService} from "./service/GainService";
+import {AdminService} from "./service/AdminService";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -68,7 +70,7 @@ const appRoutes: Routes = [
 
   ],
   exports: [RouterModule],
-  providers: [ ClientService, EmployeService, UserService, VerifyGuardService,
+  providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
   { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
