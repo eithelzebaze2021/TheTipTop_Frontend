@@ -17,17 +17,17 @@
                     <a routerLink="/cgu" class="me-4 mb-1">CGU</a>
                     <a routerLink="/mentions-legales" class="me-4 mb-1"> Mentions
                         légales</a>
-                    <a routerLink="/donnees_personnelles" class="me-4 mb-1">
-                        Données</a>
-                    <a routerLink="/politique_cookies" class="me-4 mb-1">Politique des
+                    <a routerLink="/donnees-personnelles" class="me-4 mb-1">
+                        Données personnelles</a>
+                    <a routerLink="/politique-cookies" class="me-4 mb-1">Politique des
                         cookies</a>
-                    <a routerLink="/plan_site" class="mb-1">Plan du site</a>
+                    <a routerLink="/plan-site" class="mb-1">Plan du site</a>
                 </div>
             </div>
         </div>
     </div>
     <div class="text-center copyright mt-4 small">
-        <p class="mb-1">© FuriousDucks <span id="copyright-year"></span></p>
+        <p class="mb-1">© FuriousDucks {{ footerDate | date: 'yyyy' }}</p>
         <p>Ce site est un projet étudiant, le jeu-concours est purement fictif.</p>
     </div>
 </footer>

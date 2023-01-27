@@ -19,6 +19,10 @@ import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
 import { MentionsLegalesComponent } from './pages/mentions-legales/mentions-legales.component';
 import { CguComponent } from './pages/cgu/cgu.component';
 import { RegisterComponent } from './register/register.component';
+import { registerLocaleData } from '@angular/common';
+import * as fr from '@angular/common/locales/fr';
+import { PolitiqueCookiesComponent } from './pages/politique-cookies/politique-cookies.component';
+import { DonneesPersonnellesComponent } from './pages/donnees-personnelles/donnees-personnelles.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -30,7 +34,9 @@ const appRoutes: Routes = [
   { path: 'Admin/clients',component: AdminClientsComponent},
   { path: 'cgu',component: CguComponent},
   { path: 'mentions-legales',component: MentionsLegalesComponent},
-  { path: 'register',component: RegisterComponent}
+  { path: 'register',component: RegisterComponent},
+  { path: 'politique-cookies',component: PolitiqueCookiesComponent},
+  { path: 'donnees-personnelles',component: DonneesPersonnellesComponent}
 ]
 
 @NgModule({
@@ -47,11 +53,15 @@ const appRoutes: Routes = [
     LoginComponent,
     MentionsLegalesComponent,
     CguComponent,
-    RegisterComponent
+    RegisterComponent,
+    PolitiqueCookiesComponent,
+    DonneesPersonnellesComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes,{
+      anchorScrolling: 'enabled'
+    })
 
   ],
   exports: [RouterModule],
@@ -59,4 +69,8 @@ const appRoutes: Routes = [
   { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    registerLocaleData(fr.default);
+  }
+}

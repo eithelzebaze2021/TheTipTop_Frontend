@@ -4,4 +4,20 @@
     background-position: center;
     min-height: 600px;
     background-image: url(/assets/img/hero-2.jpg);
+    position: relative;
+}
+
+.overlay{
+  position: absolute;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+  height: 100%;
+  text-align: center;
+  z-index: 1;
+  top: 0;
+  left: 0;
+}
+
+.z-index{
+  z-index: 2;
 }
