@@ -11,8 +11,7 @@ export class ApiService{
   httpOptions = {
     headers: new HttpHeaders({
       'Access-Control-Allow-Origin':'*',
-      'Cross-origin': 'cross-site',
-      Authorization: 'Basic '+ btoa('eithel.zebaze@gmail.com:Innocent')
+      'Cross-origin': 'cross-site'
     })
   };
 
