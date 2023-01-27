@@ -1,5 +1,7 @@
 import {LOCALE_ID, NgModule} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { registerLocaleData } from '@angular/common';
+import * as fr from '@angular/common/locales/fr';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -19,10 +21,9 @@ import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
 import { MentionsLegalesComponent } from './pages/mentions-legales/mentions-legales.component';
 import { CguComponent } from './pages/cgu/cgu.component';
 import { RegisterComponent } from './register/register.component';
-import { registerLocaleData } from '@angular/common';
-import * as fr from '@angular/common/locales/fr';
 import { PolitiqueCookiesComponent } from './pages/politique-cookies/politique-cookies.component';
 import { DonneesPersonnellesComponent } from './pages/donnees-personnelles/donnees-personnelles.component';
+import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
   { path: 'mentions-legales',component: MentionsLegalesComponent},
   { path: 'register',component: RegisterComponent},
   { path: 'politique-cookies',component: PolitiqueCookiesComponent},
-  { path: 'donnees-personnelles',component: DonneesPersonnellesComponent}
+  { path: 'donnees-personnelles',component: DonneesPersonnellesComponent},
+  { path: '**',component: PageNotFoundComponent}
 ]
 
 @NgModule({
@@ -55,7 +57,8 @@ const appRoutes: Routes = [
     CguComponent,
     RegisterComponent,
     PolitiqueCookiesComponent,
-    DonneesPersonnellesComponent
+    DonneesPersonnellesComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
