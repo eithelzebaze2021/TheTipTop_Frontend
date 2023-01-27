@@ -18,6 +18,7 @@ import {AdminEmployesComponent} from "./admin-employes/admin-employes.component"
 import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
 import { MentionsLegalesComponent } from './pages/mentions-legales/mentions-legales.component';
 import { CguComponent } from './pages/cgu/cgu.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
   { path: 'Admin/clients',component: AdminClientsComponent},
   { path: 'cgu',component: CguComponent},
   { path: 'mentions-legales',component: MentionsLegalesComponent},
+  { path: 'register',component: RegisterComponent}
 ]
 
 @NgModule({
@@ -44,12 +46,13 @@ const appRoutes: Routes = [
     AdminClientsComponent,
     LoginComponent,
     MentionsLegalesComponent,
-    CguComponent
+    CguComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes)
-  
+
   ],
   exports: [RouterModule],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService,
