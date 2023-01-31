@@ -3,6 +3,8 @@ import {ApiService} from "./ApiService";
 import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../models/Utilisateur";
 import * as url from "url";
+import {UserLogin, UserToken} from "../login/login.component";
+import {Observable} from "rxjs";
 
 @Injectable()
 export class UserService extends ApiService{
@@ -25,6 +27,10 @@ export class UserService extends ApiService{
 
   updateUser(U: Utilisateur){
     return this.httpClient.put(this.host+"user/updateUser",U,this.httpOptions)
+  }
+
+  loginUser(userLogin: UserLogin){
+    return this.httpClient.post<UserToken>(this.host+"user/login",userLogin,this.httpOptions)
   }
 
 

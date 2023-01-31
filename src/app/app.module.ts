@@ -26,15 +26,18 @@ import { DonneesPersonnellesComponent } from './pages/donnees-personnelles/donne
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import {GainService} from "./service/GainService";
 import {AdminService} from "./service/AdminService";
+import {TokenInterceptorService} from "./service/TokenInterceptorService";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
   { path: 'login',component: LoginComponent},
-  { path: 'Client/ticket',component: ClientTicketComponent},
-  { path: 'Client/gain',component: ClientGainComponent},
-  { path: 'Employe/client',component: EmployeClientComponent},
-  { path: 'Admin/employes',component: AdminEmployesComponent},
-  { path: 'Admin/clients',component: AdminClientsComponent},
+  { path: 'Client_ticket',component: ClientTicketComponent},
+  { path: 'Client_gain',component: ClientGainComponent},
+  { path: 'Employe_client',component: EmployeClientComponent},
+  { path: 'Admin_employes',component: AdminEmployesComponent},
+  { path: 'Admin_clients',component: AdminClientsComponent},
   { path: 'cgu',component: CguComponent},
   { path: 'mentions-legales',component: MentionsLegalesComponent},
   { path: 'register',component: RegisterComponent},
@@ -64,14 +67,16 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes,{
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes, {
       anchorScrolling: 'enabled'
-    })
+    }),
+    FormsModule
 
   ],
-  exports: [RouterModule],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
-  { provide: LOCALE_ID, useValue: 'fr-FR'}],
+    { provide: HTTP_INTERCEPTORS, useClass :TokenInterceptorService,  multi:true},
+    { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
