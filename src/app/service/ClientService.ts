@@ -13,7 +13,7 @@ export class ClientService extends ApiService{
   }
 
   getAllClient(){
-    return this.httpClient.get(this.host+"client/getAllClient", this.httpOptions)
+    return this.httpClient.get<Client[]>(this.host+"client/getAllClient", this.httpOptions)
   }
 
   getClientById(idClient: number){

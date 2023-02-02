@@ -1,1 +1,26 @@
-<p>admin-clients works!</p>
+<table class="table table-striped">
+
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">Email</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let client of listClient">
+
+    <th scope="row">{{client.idClient}}</th>
+    <td>{{client.user_client.nom}}</td>
+    <td>{{client.user_client.prenom}}</td>
+    <td>{{client.user_client.mail}}</td>
+    <td><button type="button" class="btn btn-outline-info">Info</button></td>
+  </tr>
+
+
+  </tbody>
+
+</table>
