@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../service/UserService";
-import {ApiService} from "../service/ApiService";
 import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
 import {NgForm} from "@angular/forms";
 import {Utilisateur} from "../models/Utilisateur";
 
@@ -24,15 +22,12 @@ export class UserToken {
 export class LoginComponent implements OnInit{
   userLogin: UserLogin=new UserLogin();
 
-  constructor(private route: Router,
-              //protected override httpClient : HttpClient,
-              private userService: UserService) {
-    //super(httpClient);
+  constructor(private route: Router, private userService: UserService) {
   }
   ngOnInit() {
   }
 
-  sendForm(f: NgForm){
+  sendInfoConnect(f: NgForm){
     this.userService.loginUser(this.userLogin).subscribe(resp =>{
 
       if(resp.token !== null && resp.user!==null){
@@ -49,7 +44,7 @@ export class LoginComponent implements OnInit{
       }
 
     },error => {
-
+      this.route.navigate(['**']);
     })
   }
 

@@ -2,9 +2,7 @@ import {Injectable} from "@angular/core";
 import {ApiService} from "./ApiService";
 import {HttpClient} from "@angular/common/http";
 import {Utilisateur} from "../models/Utilisateur";
-import * as url from "url";
 import {UserLogin, UserToken} from "../login/login.component";
-import {Observable} from "rxjs";
 
 @Injectable()
 export class UserService extends ApiService{
@@ -33,5 +31,7 @@ export class UserService extends ApiService{
     return this.httpClient.post<UserToken>(this.host+"user/login",userLogin,this.httpOptions)
   }
 
-
+  getRoleById(idRole: number) {
+    return this.httpClient.get(this.host+"user/getRoleById/"+idRole,this.httpOptions)
+  }
 }

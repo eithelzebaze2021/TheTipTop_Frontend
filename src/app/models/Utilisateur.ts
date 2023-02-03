@@ -9,5 +9,6 @@ export class Utilisateur{
     password: string ="";
     prenom: string ="";
     role: string="";
+    idRole: number=0;
 
 }
