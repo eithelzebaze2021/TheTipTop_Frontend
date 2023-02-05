@@ -7,6 +7,8 @@ import {UserLogin, UserToken} from "../login/login.component";
 @Injectable()
 export class UserService extends ApiService{
 
+  public userConnect: Utilisateur=new Utilisateur();
+
   constructor(protected override httpClient:HttpClient) {
     super(httpClient);
   }
@@ -33,5 +35,14 @@ export class UserService extends ApiService{
 
   getRoleById(idRole: number) {
     return this.httpClient.get(this.host+"user/getRoleById/"+idRole,this.httpOptions)
+  }
+
+  getAllRoleForPublic() {
+    return this.httpClient.get<string[]>(this.host+"user/getAllRoleForPublic",this.httpOptions)
+  }
+
+  saveUser(U: Utilisateur){
+    return this.httpClient.post<Utilisateur>(this.host+"user/saveUser", U, this.httpOptions)
+
   }
 }

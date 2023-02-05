@@ -3,6 +3,8 @@ import {UserService} from "../service/UserService";
 import {Router} from "@angular/router";
 import {NgForm} from "@angular/forms";
 import {Utilisateur} from "../models/Utilisateur";
+import Swal from 'sweetalert2';
+import {ClientService} from "../service/ClientService";
 
 export class UserLogin {
   email: String="";
@@ -22,7 +24,7 @@ export class UserToken {
 export class LoginComponent implements OnInit{
   userLogin: UserLogin=new UserLogin();
 
-  constructor(private route: Router, private userService: UserService) {
+  constructor(private route: Router, private userService: UserService, private clientService: ClientService) {
   }
   ngOnInit() {
   }
@@ -33,18 +35,35 @@ export class LoginComponent implements OnInit{
       if(resp.token !== null && resp.user!==null){
         localStorage.setItem('token',resp.token);
 
-        if(resp.user.role=="ROLE_ADMIN"){
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Indentificattion correct',
+          showConfirmButton: false,
+          timer: 1500
+        }).then(() => {if(resp.user.role=="ROLE_ADMIN"){
           this.route.navigate(['Admin_clients']);
         }else if(resp.user.role=="ROLE_CLIENT"){
-          this.route.navigate(['Client_gain']);
+            this.userService.userConnect=resp.user;
+            this.clientService.getClientByIdUser(resp.user.idUser).subscribe(resp => {
+              this.clientService.clientConnect=resp;
+              this.route.navigate(['Client_ticket']);
+            })
+
         }else{
           this.route.navigate(['Employe_client']);
-        }
+        }}
+        );
 
       }
 
     },error => {
-      this.route.navigate(['**']);
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Indentificattion Incorrect'
+      }).then(() => this.route.navigate(['login']));
+
     })
   }
 

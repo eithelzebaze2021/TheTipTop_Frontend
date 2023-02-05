@@ -1,54 +1,84 @@
  <div class="container my-5">
     <div class="border rounded-4 p-5 login-form mx-auto">
       <h1 class="text-center mb-5 title-color">S'inscrire</h1>
-      <form class="mt-3" #f="ngForm" (keydown.enter)="sendInfoRegister(f)">
+      <form class="mt-3 was-validated" #f="ngForm" (ngSubmit)="sendInfoRegister(f)" (keydown.enter)="sendInfoRegister(f)">
         <div class="form-floating mb-3">
-          <select class="form-select" aria-label="Default select example" id="gender">
-            <option value="madame" selected="">Madame</option>
-            <option value="monsieur">Monsieur</option>
+          <select class="form-select" aria-label="Default select example" name="gender" id="gender" [(ngModel)]="civilite">
+            <option value="Mme." selected="">Mme.</option>
+            <option value="M.">M.</option>
           </select>
           <label for="gender" class="element-invisible">Civilité</label>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="Nom" required="">
+          <select class="form-select" required aria-label="Default select example" name="role" id="role" [(ngModel)]="userRegister.role">
+            <option [value]="role" *ngFor="let role of tabRole">{{role}}</option>
+          </select>
+          <label for="role" class="element-invisible">Rôle</label>
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="Nom" id="Nom" required [(ngModel)]="userRegister.nom">
           <label for="Nom">Nom</label>
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="Prenom" required="">
+          <input type="text" class="form-control" name="Prenom" id="Prenom" required [(ngModel)]="userRegister.prenom">
           <label for="Prenom">Prénom</label>
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
         </div>
         <div class="form-floating mb-3">
-          <input type="email" class="form-control" id="Email" required="">
+          <input type="email" class="form-control" [formControl]="email" name="Email" id="Email" required [(ngModel)]="userRegister.mail">
           <label for="Email">Email</label>
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
+          <span style="color: red" *ngIf="email.invalid">{{getErrorMessageMail()}}</span>
         </div>
         <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="Password" required="">
+          <input type="password" class="form-control" name="Password" id="Password" required [(ngModel)]="password">
           <label for="Password">Mot de passe</label>
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
         </div>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="Adresse" required="">
+          <input type="password" class="form-control" name="Password-Val" id="Password-Val" required [(ngModel)]="userRegister.password">
+          <label for="Password-Val">Confirmation du mot de passe</label>
+          <span style="color: red" *ngIf="userRegister.password!==password">Confirmer le mot de passe</span>
+        </div>
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control" name="Adresse" id="Adresse" required [(ngModel)]="userRegister.adresse">
           <label for="Adresse">Adresse</label>
+          <div class="invalid-feedback">
+            Champ obligatoire
+          </div>
         </div>
-        <div class="form-floating mb-3">
-          <input type="password" class="form-control" id="Password-Validation" required="">
-          <label for="Password-Validation">Confirmation du mot de passe</label>
-        </div>
+
         <div class="row no-gutters mb-4">
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="number" class="form-control" id="CodePostal" required="">
+              <input type="number" class="form-control" name="CodePostal" id="CodePostal" required [(ngModel)]="userRegister.code_postal">
               <label for="CodePostal">Code Postal</label>
+            </div>
+            <div class="invalid-feedback">
+              Champ obligatoire
             </div>
           </div>
           <div class="col">
             <div class="form-floating mb-3">
-              <input type="text" class="form-control" id="Ville" required="">
+              <input type="text" class="form-control" name="Ville" id="Ville" required [(ngModel)]="userRegister.ville">
               <label for="Ville">Ville</label>
             </div>
           </div>
         </div>
-        <div class="text-center mb-3" (click)="sendInfoRegister(f)">
-          <button type="submit" class="btn btn-login">Créer mon compte</button>
+        <div class="text-center mb-3">
+          <button type="submit" class="btn btn-login" [disabled]="f.invalid || userRegister.password!==password || email.invalid">Créer mon compte</button>
         </div>
       </form></div>
   </div>

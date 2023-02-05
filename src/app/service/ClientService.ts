@@ -4,9 +4,12 @@ import { Observable } from 'rxjs';
 import {ApiService} from "./ApiService";
 import {Client} from "../models/Client";
 import {Ticket} from "../models/Ticket";
+import {Utilisateur} from "../models/Utilisateur";
 
 @Injectable()
 export class ClientService extends ApiService{
+
+  public clientConnect: Client = new Client();
 
   constructor(protected override httpClient:HttpClient) {
     super(httpClient);
@@ -16,28 +19,32 @@ export class ClientService extends ApiService{
     return this.httpClient.get<Client[]>(this.host+"client/getAllClient", this.httpOptions)
   }
 
-  getClientById(idClient: number){
-    return this.httpClient.get(this.host+"client/getClientById/"+idClient, this.httpOptions)
+  getClientByIdClient(idClient: number){
+    return this.httpClient.get<Client>(this.host+"client/getClientByIdClient/"+idClient, this.httpOptions)
+  }
+
+  getClientByIdUser(idUser: number){
+    return this.httpClient.get<Client>(this.host+"client/getClientByIdUser/"+idUser, this.httpOptions)
   }
 
   saveClient(C: Client){
-    this.httpClient.post(this.host+"client/saveClient", C, this.httpOptions)
+    return this.httpClient.post(this.host+"client/saveClient", C, this.httpOptions)
 
   }
   deleteClient(idClient:number){
     return this.httpClient.delete(this.host+"client/deleteClient/"+idClient,this.httpOptions)
   }
 
-  getAllTicket(){
-    return this.httpClient.get(this.host+"ticket/getAllTicket", this.httpOptions)
+  getAllTicketClient(idClient: number,first: number,last: number){
+    return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketClient/"+idClient+"/"+first+"/"+last, this.httpOptions)
   }
 
   getTicketById(idTicket: number){
     return this.httpClient.get(this.host+"ticket/getTicketById/"+idTicket, this.httpOptions)
   }
 
-  saveTicket(T:Ticket){
-    return this.httpClient.post(this.host+"ticket/saveTicket",T,this.httpOptions)
+  saveTicketClient(numTicket:string){
+    return this.httpClient.post(this.host+"ticket/saveTicketClient/"+numTicket,this.clientConnect,this.httpOptions)
   }
 
   deleteTicket(idTicket: number){

@@ -28,7 +28,7 @@ import {GainService} from "./service/GainService";
 import {AdminService} from "./service/AdminService";
 import {TokenInterceptorService} from "./service/TokenInterceptorService";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -65,15 +65,16 @@ const appRoutes: Routes = [
     DonneesPersonnellesComponent,
     PageNotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    RouterModule.forRoot(appRoutes, {
-      anchorScrolling: 'enabled'
-    }),
-    FormsModule
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        RouterModule.forRoot(appRoutes, {
+            anchorScrolling: 'enabled'
+        }),
+        FormsModule,
+        ReactiveFormsModule
 
-  ],
+    ],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
     { provide: HTTP_INTERCEPTORS, useClass :TokenInterceptorService,  multi:true},
     { provide: LOCALE_ID, useValue: 'fr-FR'}],
