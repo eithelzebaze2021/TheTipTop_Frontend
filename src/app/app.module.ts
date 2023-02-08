@@ -32,14 +32,26 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { NavbarClientComponent } from './navbar-client/navbar-client.component';
 import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
 import { NavbarEmployeComponent } from './navbar-employe/navbar-employe.component';
+import { EmployeTicketComponent } from './employe-ticket/employe-ticket.component';
+import { AdminGainComponent } from './admin-gain/admin-gain.component';
+import { AdminTirageComponent } from './admin-tirage/admin-tirage.component';
+import { AdminMagasinComponent } from './admin-magasin/admin-magasin.component';
+import { EmployeCompteComponent } from './employe-compte/employe-compte.component';
+import { ClientCompteComponent } from './client-compte/client-compte.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
   { path: 'login',component: LoginComponent},
   { path: 'Client_ticket',component: ClientTicketComponent},
   { path: 'Client_gain',component: ClientGainComponent},
+  {path:'client_compte',component:ClientCompteComponent},
   { path: 'Employe_client',component: EmployeClientComponent},
+  {path:'employe_ticket',component:EmployeTicketComponent},
+  {path:'employe_compte',component:EmployeCompteComponent},
   { path: 'Admin_employes',component: AdminEmployesComponent},
+  {path:'admin_gain',component:AdminGainComponent},
+  {path:'admin_magasin',component:AdminMagasinComponent},
+  {path:'admin_tirage',component:AdminTirageComponent},
   { path: 'Admin_clients',component: AdminClientsComponent},
   { path: 'cgu',component: CguComponent},
   { path: 'mentions-legales',component: MentionsLegalesComponent},
@@ -69,7 +81,13 @@ const appRoutes: Routes = [
     PageNotFoundComponent,
     NavbarClientComponent,
     NavbarAdminComponent,
-    NavbarEmployeComponent
+    NavbarEmployeComponent,
+    EmployeTicketComponent,
+    AdminGainComponent,
+    AdminTirageComponent,
+    AdminMagasinComponent,
+    EmployeCompteComponent,
+    ClientCompteComponent
   ],
     imports: [
         BrowserModule,

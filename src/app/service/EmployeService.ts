@@ -14,7 +14,7 @@ export class EmployeService extends ApiService{
   }
 
   getAllEmploye(){
-    return this.httpClient.get(this.host+"employe/getAllEmploye",this.httpOptions)
+    return this.httpClient.get<Employe[]>(this.host+"employe/getAllEmploye",this.httpOptions)
   }
 
   getEmployeById(idEmploye: number){

@@ -1,0 +1,53 @@
+.logo {
+  width: 80px;
+}
+
+.navbar {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+  background-color: var(--baby-powder);
+}
+
+.navbar-toggler:focus {
+  box-shadow: unset !important;
+}
+
+.navbar-collapse li a{
+  color: black;
+  display: inline-block;
+  z-index: 1;
+
+}
+
+
+/*
+.navbar-collapse li a:nth-child(1){
+  width: 100px;
+}
+
+.navbar-collapse .nav-link, a:nth-child(1):hover~.navbar-collapse{
+  width: 100px;
+  left: 0;
+}
+
+.navbar-collapse li a:nth-child(2){
+  width: 110px;
+}
+
+.navbar-collapse .nav-link, a:nth-child(1):hover~.navbar-collapse{
+  width: 110px;
+  left: 100px;
+}
+
+*/
+.navbar-collapse li .active{
+  color: darkgreen;
+  border-bottom: 5px solid darkgreen;
+  width: 100%;
+  z-index: 0;
+  border-radius: 1px;
+  transition: all 0.5s ease 0s;
+}

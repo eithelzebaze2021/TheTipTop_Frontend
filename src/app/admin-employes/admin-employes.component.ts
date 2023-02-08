@@ -4,6 +4,9 @@ import {GainService} from "../service/GainService";
 import {UserService} from "../service/UserService";
 import {EmployeService} from "../service/EmployeService";
 import {AdminService} from "../service/AdminService";
+import {Employe} from "../models/Employe";
+import {Router} from "@angular/router";
+import {Client} from "../models/Client";
 
 @Component({
   selector: 'app-admin-employes',
@@ -11,8 +14,10 @@ import {AdminService} from "../service/AdminService";
   styleUrls: ['./admin-employes.component.css']
 })
 export class AdminEmployesComponent implements OnInit{
+  public listEmploye: Employe[] = [];
 
   constructor( private clientService: ClientService,
+               private route: Router,
                private gainService: GainService,
                private userService: UserService,
                private employeService: EmployeService,
@@ -20,6 +25,9 @@ export class AdminEmployesComponent implements OnInit{
   }
 
   ngOnInit() {
+    this.employeService.getAllEmploye().subscribe(resp=>{
+     this.listEmploye = resp;
+    })
   }
 
 }

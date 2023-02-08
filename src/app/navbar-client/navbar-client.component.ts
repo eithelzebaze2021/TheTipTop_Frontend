@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar-client.component.css']
 })
 export class NavbarClientComponent {
+  Deconnect() {
+    localStorage.clear();
+  }
+
+
 
 }

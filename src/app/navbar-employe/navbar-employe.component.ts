@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar-employe.component.css']
 })
 export class NavbarEmployeComponent {
+  Deconnect() {
+    localStorage.clear();
+  }
 
 }
