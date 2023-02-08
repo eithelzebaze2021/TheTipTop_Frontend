@@ -7,6 +7,8 @@ import {Employe} from "../models/Employe";
 @Injectable()
 export class EmployeService extends ApiService{
 
+  public employeConect : Employe = new Employe();
+
   constructor(protected override httpClient:HttpClient) {
     super(httpClient);
   }

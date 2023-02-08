@@ -29,6 +29,9 @@ import {AdminService} from "./service/AdminService";
 import {TokenInterceptorService} from "./service/TokenInterceptorService";
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { NavbarClientComponent } from './navbar-client/navbar-client.component';
+import { NavbarAdminComponent } from './navbar-admin/navbar-admin.component';
+import { NavbarEmployeComponent } from './navbar-employe/navbar-employe.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -63,7 +66,10 @@ const appRoutes: Routes = [
     RegisterComponent,
     PolitiqueCookiesComponent,
     DonneesPersonnellesComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    NavbarClientComponent,
+    NavbarAdminComponent,
+    NavbarEmployeComponent
   ],
     imports: [
         BrowserModule,

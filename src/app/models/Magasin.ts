@@ -4,7 +4,8 @@ export class Magasin{
     id_magasin: number =0;
     adresse: string ="";
     code_postal: string ="";
-    nom_magasin: string ="";
-    list_ticket: Ticket[] =[];
+    nomMagasin: string ="";
+   // list_ticket: Ticket[] =[];
+  //
 
 }
