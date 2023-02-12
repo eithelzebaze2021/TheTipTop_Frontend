@@ -41,3 +41,39 @@
   width: 500px;
   box-shadow: rgb(0 0 0 / 5%) 0px 6px 24px 0px, rgb(0 0 0 / 8%) 0px 0px 0px 1px;
 }
+
+/*For Nav Barre */
+
+.logo {
+  width: 80px;
+}
+
+.navbar {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.navbar-collapse {
+  flex-grow: 0;
+  background-color: var(--baby-powder);
+}
+
+.navbar-toggler:focus {
+  box-shadow: unset !important;
+}
+
+.navbar-collapse li a{
+  color: black;
+  display: inline-block;
+  z-index: 1;
+  text-decoration: white;
+
+}
+
+.navbar-collapse li .active{
+  color: darkgreen;
+  border-bottom: 3px solid darkgreen;
+  width: 100%;
+  z-index: 0;
+  border-radius: 4px;
+  transition: all 0.5s ease 0s;
+}

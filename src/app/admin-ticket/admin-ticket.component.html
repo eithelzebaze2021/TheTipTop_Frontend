@@ -1,0 +1,80 @@
+<app-navbar-admin></app-navbar-admin>
+
+<div class="text-center pt-4 pb-4">
+  <h2 class="font-weight-bold title-color">Les tickets gagnés</h2>
+</div>
+
+<div class="accordion">
+  <div class="accordion-item" *ngFor="let ticket of listTicket">
+    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+      <div style="display: flex; flex-direction: row; justify-content: space-around; width: 100%"
+           class="accordion-button" type="button" data-bs-toggle="collapse"
+           data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true"
+           aria-controls="panelsStayOpen-collapseOne">
+       <span> Numero : {{ticket.numero}}</span>
+        <span style="margin-left: 30%"> Montant : {{ticket.montant}}</span>
+      </div>
+    </h2>
+    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+      <div class="accordion-body">
+
+        <div style="display: flex;flex-wrap: wrap; flex-direction: row">
+
+          <div class="col-lg-4 col-md-6 p-4" style="margin: -1px;">
+
+            <figure class="figure text-center rounded">
+              <img [src]="ticket.gain.lienImageGain" class="figure-img img-fluid rounded" alt="...">
+
+              <figcaption class="figure-caption text-start">
+                <h4 class="card-title title-color">{{ticket.gain.nomGain}}</h4>
+                <p class="card-text"> {{ticket.gain.description}} </p>
+                <p class="card-text"> Nombre de ticket restant : {{ticket.gain.nbreTicketRestant}} </p>
+                <span style="cursor: pointer; color: lawngreen" [routerLink]="['Admin_ticket', ticket.gain.idGain]">Liste des tickets</span>
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 p-4" style="margin: -1px;">
+
+            <figure class="figure text-center rounded">
+              <img [src]="ticket.gain.lienImageGain" class="figure-img img-fluid rounded" alt="...">
+
+              <figcaption class="figure-caption text-start">
+                <h4 class="card-title title-color">{{ticket.gain.nomGain}}</h4>
+                <p class="card-text"> {{ticket.gain.description}} </p>
+                <p class="card-text"> Nombre de ticket restant : {{ticket.gain.nbreTicketRestant}} </p>
+                <span style="cursor: pointer; color: lawngreen" [routerLink]="['Admin_ticket', ticket.gain.idGain]">Liste des tickets</span>
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 p-4" style="margin: -1px;">
+
+            <figure class="figure text-center rounded">
+              <img [src]="ticket.gain.lienImageGain" class="figure-img img-fluid rounded" alt="...">
+
+              <figcaption class="figure-caption text-start">
+                <h4 class="card-title title-color">{{ticket.gain.nomGain}}</h4>
+                <p class="card-text"> {{ticket.gain.description}} </p>
+                <p class="card-text"> Nombre de ticket restant : {{ticket.gain.nbreTicketRestant}} </p>
+                <span style="cursor: pointer; color: lawngreen" [routerLink]="['Admin_ticket', ticket.gain.idGain]">Liste des tickets</span>
+              </figcaption>
+
+            </figure>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center pt-4 pb-4">
+  <button type="button" class="btn btn-outline-secondary">Ajouter un Ticket</button>
+</div>

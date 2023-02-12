@@ -31,9 +31,6 @@ export class ClientService extends ApiService{
     return this.httpClient.post(this.host+"client/saveClient", C, this.httpOptions)
 
   }
-  deleteClient(idClient:number){
-    return this.httpClient.delete(this.host+"client/deleteClient/"+idClient,this.httpOptions)
-  }
 
   getAllTicketClient(idClient: number,first: number,last: number){
     return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketClient/"+idClient+"/"+first+"/"+last, this.httpOptions)
@@ -46,13 +43,5 @@ export class ClientService extends ApiService{
   saveTicketClient(numTicket:string){
     return this.httpClient.post(this.host+"ticket/saveTicketClient/"+numTicket,this.clientConnect,this.httpOptions)
   }
-
-  deleteTicket(idTicket: number){
-    return this.httpClient.delete(this.host+"ticket/deleteTicket/"+idTicket, this.httpOptions)
-  }
-
-
-
-
 
 }

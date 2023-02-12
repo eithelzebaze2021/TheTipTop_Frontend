@@ -1,29 +1,31 @@
-import {Component, OnInit} from '@angular/core';
+import { Component } from '@angular/core';
 import {AdminService} from "../service/AdminService";
 import {EmployeService} from "../service/EmployeService";
 import {ClientService} from "../service/ClientService";
-import {Router} from "@angular/router";
-import {Client} from "../models/Client";
 import Swal from "sweetalert2";
+import {Ticket} from "../models/Ticket";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
-  selector: 'app-admin-clients',
-  templateUrl: './admin-clients.component.html',
-  styleUrls: ['./admin-clients.component.css']
+  selector: 'app-admin-ticket',
+  templateUrl: './admin-ticket.component.html',
+  styleUrls: ['./admin-ticket.component.css']
 })
-export class AdminClientsComponent implements OnInit{
-  public listClient: Client[] = [];
+export class AdminTicketComponent {
+
+  public listTicket: Ticket[] = [];
 
   constructor(
     private route: Router,
+    private routeParam: ActivatedRoute,
     private adminService: AdminService,
     private employeService: EmployeService,
     private clientService: ClientService) {
   }
   ngOnInit() {
 
-    this.clientService.getAllClient().subscribe(resp=>{
-      this.listClient = resp;
+    this.adminService.getAllTicketGain(0,30).subscribe(resp=>{
+      this.listTicket = resp;
     },error => {
       Swal.fire({
         icon: 'error',

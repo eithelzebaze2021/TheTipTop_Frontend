@@ -1,3 +1,33 @@
 <app-navbar-admin></app-navbar-admin>
+<div class="row flex-column">
+  <div class="text-center pt-4 pb-4" id="gains">
+    <h2 class="font-weight-bold title-color">Les gains</h2>
+  </div>
+  <div class="section2-card-container">
 
-<p>admin-gain works!</p>
+    <div style="display: flex;flex-wrap: wrap">
+
+      <div class="col-lg-4 col-md-6 p-4" style="margin: -1px;" *ngFor="let gain of listGain">
+
+        <figure class="figure text-center rounded">
+          <img [src]="gain.lienImageGain" class="figure-img img-fluid rounded" alt="...">
+
+          <figcaption class="figure-caption text-start">
+            <h4 class="card-title title-color">{{gain.nomGain}}</h4>
+            <p class="card-text"> {{gain.description}} </p>
+            <p class="card-text"> Nombre de ticket restant : {{gain.nbreTicketRestant}} </p>
+            <span style="cursor: pointer; color: lawngreen" >Liste des tickets</span>
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+    </div>
+
+    <div class="text-center pt-4 pb-4">
+      <button type="button" class="btn btn-outline-secondary">Ajouter un Gain</button>
+    </div>
+
+  </div>
+</div>

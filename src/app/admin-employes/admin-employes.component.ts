@@ -7,6 +7,7 @@ import {AdminService} from "../service/AdminService";
 import {Employe} from "../models/Employe";
 import {Router} from "@angular/router";
 import {Client} from "../models/Client";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-admin-employes',
@@ -27,6 +28,13 @@ export class AdminEmployesComponent implements OnInit{
   ngOnInit() {
     this.employeService.getAllEmploye().subscribe(resp=>{
      this.listEmploye = resp;
+    },error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Indentificattion Incorrect'
+      }).then(() => this.route.navigate(['Login']));
+
     })
   }
 

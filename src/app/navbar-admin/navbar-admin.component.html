@@ -10,22 +10,51 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav align-items-center">
         <li class="nav-item me-3">
-          <a class="nav-link" aria-current="page" routerLink="/Admin_clients" >Liste clients</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Admin_clients',
+          'nav-link': this.route.url!=='/Admin_clients'
+          }"  routerLink="/Admin_clients">Clients</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" routerLink="/admin_gain" >Les gains</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Admin_gain',
+          'nav-link': this.route.url!=='/Admin_gain'
+          }" routerLink="/Admin_gain">Gains</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" routerLink="/admin_tirage" >Tirage au sort</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Admin_employes',
+          'nav-link': this.route.url!=='/Admin_employes'
+          }" routerLink="/Admin_employes" >Employés</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" routerLink="/Admin_employes" >Liste Employés</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Admin_ticket',
+          'nav-link': this.route.url!=='/Admin_ticket'
+          }" routerLink="/Admin_ticket" >
+            <span class="material-icons" style="font-size: 2em">local_activity</span>
+          </a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" routerLink="/admin_magasin" >Liste Magasins</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Admin_magasin',
+          'nav-link': this.route.url!=='/Admin_magasin'
+          }" routerLink="/Admin_magasin" >
+            <span class="material-icons" style="font-size: 2em">storefront</span>
+          </a>
         </li>
+
+        <li class="nav-item me-3">
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Admin_stat',
+          'nav-link': this.route.url!=='/Admin_stat'
+          }" routerLink="/Admin_stat" >
+            <span class="material-icons" style="font-size: 2em">query_stats</span>
+          </a>
+        </li>
+
         <li class="nav-item">
-          <a class="nav-link text-center" routerLink="/login">
+          <a class="nav-link text-center" routerLink="/Login">
 
             <button type="button" class="btn btn-login " (click)="Deconnect()">
               <i class="bi bi-person-circle fs-5 me-1" style="font-size: 25px;"></i>

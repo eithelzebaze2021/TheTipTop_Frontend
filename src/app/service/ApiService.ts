@@ -8,7 +8,7 @@ export class ApiService{
 
   }
 
-  protected host = 'http://localhost:8090/api-tip-top-G1/';
+  protected host = 'http://localhost:8095/api-tip-top-G1/';
 
   httpOptions = {
     headers: new HttpHeaders({

@@ -1,2 +1,31 @@
 <app-navbar-admin></app-navbar-admin>
-<p>admin-employes works!</p>
+<div class="text-center pt-4 pb-4">
+  <h2 class="font-weight-bold title-color">Les employés</h2>
+</div>
+<table class="table table-striped">
+
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Prenom</th>
+    <th scope="col">E-mail</th>
+    <th scope="col">Magasin</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let employe of listEmploye">
+
+    <th scope="row">{{employe.idEmploye}}</th>
+    <td>{{employe.user_employe.nom}}</td>
+    <td>{{employe.user_employe.prenom}}</td>
+    <td>{{employe.user_employe.mail}}</td>
+    <td>{{employe.magasin_empl.nomMagasin}}</td>
+    <td><button type="button" class="btn btn-outline-info">Info</button></td>
+  </tr>
+
+
+  </tbody>
+
+</table>

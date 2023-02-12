@@ -35,7 +35,7 @@ export class ClientTicketComponent implements OnInit{
                 Swal.fire(`Le numero ticket est : ${text}`)
 
                 this.clientService.saveTicketClient(text).subscribe(()=>{
-                  
+
                 })
 
               }

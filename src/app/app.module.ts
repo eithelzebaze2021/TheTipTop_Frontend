@@ -38,26 +38,30 @@ import { AdminTirageComponent } from './admin-tirage/admin-tirage.component';
 import { AdminMagasinComponent } from './admin-magasin/admin-magasin.component';
 import { EmployeCompteComponent } from './employe-compte/employe-compte.component';
 import { ClientCompteComponent } from './client-compte/client-compte.component';
+import { AdminStatComponent } from './admin-stat/admin-stat.component';
+import { AdminTicketComponent } from './admin-ticket/admin-ticket.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
-  { path: 'login',component: LoginComponent},
+  { path: 'Login',component: LoginComponent},
   { path: 'Client_ticket',component: ClientTicketComponent},
   { path: 'Client_gain',component: ClientGainComponent},
-  {path:'client_compte',component:ClientCompteComponent},
+  {path:'Client_compte',component:ClientCompteComponent},
   { path: 'Employe_client',component: EmployeClientComponent},
-  {path:'employe_ticket',component:EmployeTicketComponent},
-  {path:'employe_compte',component:EmployeCompteComponent},
+  {path:'Employe_ticket',component:EmployeTicketComponent},
+  {path:'Employe_compte',component:EmployeCompteComponent},
   { path: 'Admin_employes',component: AdminEmployesComponent},
-  {path:'admin_gain',component:AdminGainComponent},
-  {path:'admin_magasin',component:AdminMagasinComponent},
-  {path:'admin_tirage',component:AdminTirageComponent},
+  {path:'Admin_gain',component:AdminGainComponent},
+  {path:'Admin_magasin',component:AdminMagasinComponent},
+  {path:'Admin_tirage',component:AdminTirageComponent},
   { path: 'Admin_clients',component: AdminClientsComponent},
-  { path: 'cgu',component: CguComponent},
-  { path: 'mentions-legales',component: MentionsLegalesComponent},
-  { path: 'register',component: RegisterComponent},
-  { path: 'politique-cookies',component: PolitiqueCookiesComponent},
-  { path: 'donnees-personnelles',component: DonneesPersonnellesComponent},
+  {path:'Admin_stat',component:AdminStatComponent},
+  { path: 'Admin_ticket',component:AdminTicketComponent},
+  { path: 'CGU',component: CguComponent},
+  { path: 'Mentions-legales',component: MentionsLegalesComponent},
+  { path: 'Register',component: RegisterComponent},
+  { path: 'Politique-cookies',component: PolitiqueCookiesComponent},
+  { path: 'Donnees-personnelles',component: DonneesPersonnellesComponent},
   { path: '**',component: PageNotFoundComponent}
 ]
 
@@ -87,7 +91,9 @@ const appRoutes: Routes = [
     AdminTirageComponent,
     AdminMagasinComponent,
     EmployeCompteComponent,
-    ClientCompteComponent
+    ClientCompteComponent,
+    AdminStatComponent,
+    AdminTicketComponent
   ],
     imports: [
         BrowserModule,

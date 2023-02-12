@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import {AdminService} from "../service/AdminService";
-import {EmployeService} from "../service/EmployeService";
 import {ClientService} from "../service/ClientService";
 import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
-import {Client} from "../models/Client";
+import {GainService} from "../service/GainService";
+import Swal from "sweetalert2";
+import {Gain} from "../models/Gain";
 
 @Component({
   selector: 'app-admin-gain',
@@ -12,5 +11,29 @@ import {Client} from "../models/Client";
   styleUrls: ['./admin-gain.component.css']
 })
 export class AdminGainComponent {
+
+  public listGain: Gain[] = [];
+
+  constructor(private clientService: ClientService,
+              private route: Router,
+              private gainService: GainService
+  ) {
+
+  }
+
+
+  ngOnInit() {
+    this.gainService.getAllGain().subscribe(resp=>{
+      this.listGain = resp;
+    },error => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Indentificattion Incorrect'
+      }).then(() => this.route.navigate(['Login']));
+
+    })
+  }
+
 
 }

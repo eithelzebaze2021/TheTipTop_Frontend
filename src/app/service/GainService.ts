@@ -10,7 +10,7 @@ export class GainService extends ApiService{
   }
 
   getAllGain(){
-    return this.httpClient.get(this.host+"gain/getAllGain", this.httpOptions)
+    return this.httpClient.get<Gain[]>(this.host+"gain/getAllGain", this.httpOptions)
   }
 
   getGainById(idGain: number){

@@ -10,16 +10,25 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav align-items-center">
         <li class="nav-item me-3">
-          <a class="nav-link" aria-current="page" routerLink="/employe_ticket" >Liste tickets</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Employe_ticket',
+          'nav-link': this.route.url!=='/Employe_ticket'
+          }" routerLink="/Employe_ticket" >Liste tickets</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" routerLink="/Employe_client" >Liste Clients</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Employe_client',
+          'nav-link': this.route.url!=='/Employe_client'
+          }" routerLink="/Employe_client" >Liste Clients</a>
         </li>
         <li class="nav-item me-3">
-          <a class="nav-link" routerLink="/employe_compte" >Mon compte</a>
+          <a [ngClass]="{
+          'nav-link active': this.route.url==='/Employe_compte',
+          'nav-link': this.route.url!=='/Employe_compte'
+          }" routerLink="/Employe_compte" >Mon compte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-center" routerLink="/login">
+          <a class="nav-link text-center" routerLink="/Login">
 
             <button type="button" class="btn btn-login " (click)="Deconnect()">
               <i class="bi bi-person-circle fs-5 me-1" style="font-size: 25px;"></i>

@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit{
         icon: 'error',
         title: 'Oops...',
         text: 'Indentificattion Incorrect'
-      }).then(() => this.route.navigate(['login']));
+      }).then(() => this.route.navigate(['Login']));
 
     })
   }

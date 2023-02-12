@@ -5,7 +5,6 @@ export class Magasin{
     adresse: string ="";
     code_postal: string ="";
     nomMagasin: string ="";
-   // list_ticket: Ticket[] =[];
-  //
+    ville: string ="";
 
 }

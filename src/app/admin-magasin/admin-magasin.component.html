@@ -1,3 +1,32 @@
 <app-navbar-admin></app-navbar-admin>
+<div class="text-center pt-4 pb-4">
+  <h2 class="font-weight-bold title-color">Les magasins</h2>
+</div>
+<table class="table table-striped">
 
-<p>admin-magasin works!</p>
+  <thead>
+  <tr>
+    <th scope="col">id</th>
+    <th scope="col">Nom</th>
+    <th scope="col">Adresse</th>
+    <th scope="col">Code Pos</th>
+    <th scope="col">Ville</th>
+    <th scope="col">Action</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <tr *ngFor="let mag of listMagasin">
+
+    <th scope="row">{{mag.id_magasin}}</th>
+    <td>{{mag.nomMagasin}}</td>
+    <td>{{mag.adresse}}</td>
+    <td>{{mag.code_postal}}</td>
+    <td>{{mag.ville}}</td>
+    <td><button type="button" class="btn btn-outline-info">Info</button></td>
+  </tr>
+
+
+  </tbody>
+
+</table>
