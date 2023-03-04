@@ -5,6 +5,7 @@ import {NgForm} from "@angular/forms";
 import {Utilisateur} from "../models/Utilisateur";
 import Swal from 'sweetalert2';
 import {ClientService} from "../service/ClientService";
+import {EmployeService} from "../service/EmployeService";
 
 export class UserLogin {
   email: String="";
@@ -24,7 +25,8 @@ export class UserToken {
 export class LoginComponent implements OnInit{
   userLogin: UserLogin=new UserLogin();
 
-  constructor(private route: Router, private userService: UserService, private clientService: ClientService) {
+  constructor(private route: Router, private userService: UserService,
+              private clientService: ClientService, private employeService: EmployeService) {
   }
   ngOnInit() {
   }
@@ -51,7 +53,11 @@ export class LoginComponent implements OnInit{
             })
 
         }else{
-          this.route.navigate(['Employe_client']);
+            this.userService.userConnect=resp.user;
+            this.employeService.getEmployeByIdUser(resp.user.idUser).subscribe(resp => {
+              this.employeService.employeConnect=resp;
+              this.route.navigate(['Employe_client']);
+            })
         }}
         );
 

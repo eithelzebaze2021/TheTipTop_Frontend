@@ -6,7 +6,7 @@ import {Employe} from "../models/Employe";
 @Injectable()
 export class EmployeService extends ApiService{
 
-  public employeConect : Employe = new Employe();
+  public employeConnect : Employe = new Employe();
 
   constructor(protected override httpClient:HttpClient) {
     super(httpClient);
@@ -16,8 +16,8 @@ export class EmployeService extends ApiService{
     return this.httpClient.get<Employe[]>(this.host+"employe/getAllEmploye",this.httpOptions)
   }
 
-  getEmployeById(idEmploye: number){
-    return this.httpClient.get(this.host+"employe/getEmployeById/"+idEmploye, this.httpOptions)
+  getEmployeByIdUser(idUser: number){
+    return this.httpClient.get<Employe>(this.host+"employe/getEmployeByIdUser/"+idUser, this.httpOptions)
   }
 
   saveEmploye(E:Employe){
