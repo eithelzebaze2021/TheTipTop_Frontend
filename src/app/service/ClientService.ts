@@ -1,10 +1,8 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import {ApiService} from "./ApiService";
 import {Client} from "../models/Client";
 import {Ticket} from "../models/Ticket";
-import {Utilisateur} from "../models/Utilisateur";
 
 @Injectable()
 export class ClientService extends ApiService{
@@ -42,6 +40,10 @@ export class ClientService extends ApiService{
 
   saveTicketClient(numTicket:string){
     return this.httpClient.post(this.host+"ticket/saveTicketClient/"+numTicket,this.clientConnect,this.httpOptions)
+  }
+
+  getClientConnectByUserServicesByToken() {
+    return this.httpClient.get<Client>(this.host+"client/getClientConnect",this.httpOptions)
   }
 
 }
