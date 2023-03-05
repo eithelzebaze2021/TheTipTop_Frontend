@@ -29,4 +29,8 @@ export class EmployeService extends ApiService{
 
   }
 
+  getEmployeConnectByUserServicesByToken() {
+    return this.httpClient.get<Employe>(this.host+"employe/getEmployeConnect",this.httpOptions)
+  }
+
 }

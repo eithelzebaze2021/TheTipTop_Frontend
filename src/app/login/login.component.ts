@@ -45,11 +45,13 @@ export class LoginComponent implements OnInit{
           timer: 1500
         }).then(() => {if(resp.user.role=="ROLE_ADMIN"){
           this.route.navigate(['Admin_clients']);
+            localStorage.setItem('who',"ADMIN");
         }else if(resp.user.role=="ROLE_CLIENT"){
             this.userService.userConnect=resp.user;
             this.clientService.getClientByIdUser(resp.user.idUser).subscribe(resp => {
               this.clientService.clientConnect=resp;
               this.route.navigate(['Client_ticket']);
+              localStorage.setItem('who',"CLIENT");
             })
 
         }else{
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit{
             this.employeService.getEmployeByIdUser(resp.user.idUser).subscribe(resp => {
               this.employeService.employeConnect=resp;
               this.route.navigate(['Employe_client']);
+              localStorage.setItem('who',"EMPLOYE");
             })
         }}
         );
