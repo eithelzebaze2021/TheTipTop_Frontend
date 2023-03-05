@@ -1,2 +1,76 @@
 <app-navbar-client></app-navbar-client>
-<p>client-compte works!</p>
+<div class="text-center pt-4 pb-4">
+  <h2 class="font-weight-bold title-color">Mon compte</h2>
+</div>
+
+<div class="card">
+  <h5 class="card-header">Mes informations</h5>
+  <div class="card-body" style="display: flex; flex-direction: column; padding-left: 15%; padding-right: 15%">
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap">
+
+      <h5 class="card-title">Nom</h5>
+      <p class="card-text">{{clientService.clientConnect.user_client.nom}}</p>
+
+    </div>
+    <div class="progress" style="height: 1px;">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%;
+      margin-bottom: 5%; margin-top: 5%"></div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap">
+
+      <h5 class="card-title">Prenom</h5>
+      <p class="card-text">{{clientService.clientConnect.user_client.prenom}}</p>
+
+    </div>
+
+    <div class="progress" style="height: 1px;">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%;
+      margin-bottom: 5%; margin-top: 5%"></div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap">
+
+      <h5 class="card-title">Mail</h5>
+      <p class="card-text">{{clientService.clientConnect.user_client.mail}}</p>
+
+    </div>
+    <div class="progress" style="height: 1px;">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%;
+      margin-bottom: 5%; margin-top: 5%"></div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap">
+
+      <h5 class="card-title">Adresse</h5>
+      <p class="card-text">{{clientService.clientConnect.user_client.adresse}}</p>
+
+    </div>
+
+    <div class="progress" style="height: 1px;">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%;
+      margin-bottom: 5%; margin-top: 5%"></div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap">
+
+      <h5 class="card-title">Ville</h5>
+      <p class="card-text">{{clientService.clientConnect.user_client.ville}}</p>
+
+    </div>
+
+    <div class="progress" style="height: 1px;">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%;
+      margin-bottom: 5%; margin-top: 5%"></div>
+    </div>
+    <div style="display: flex; flex-direction: row; justify-content: space-between; flex-wrap: wrap">
+
+      <h5 class="card-title">Code postale</h5>
+      <p class="card-text">{{clientService.clientConnect.user_client.code_postal}}</p>
+
+    </div>
+
+  </div>
+
+  <div class="text-center pt-4 pb-4">
+    <button type="button" class="btn btn-outline-secondary">Modifier</button>
+  </div>
+
+</div>
+

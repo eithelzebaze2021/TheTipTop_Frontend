@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {EmployeService} from "../service/EmployeService";
 
 @Component({
   selector: 'app-employe-compte',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./employe-compte.component.css']
 })
 export class EmployeCompteComponent {
+
+  constructor( public employeService: EmployeService) {
+  }
+
+  ngOnInit() {
+
+  }
+
 
 }
