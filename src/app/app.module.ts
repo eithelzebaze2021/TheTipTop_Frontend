@@ -40,6 +40,7 @@ import { EmployeCompteComponent } from './employe-compte/employe-compte.componen
 import { ClientCompteComponent } from './client-compte/client-compte.component';
 import { AdminStatComponent } from './admin-stat/admin-stat.component';
 import { AdminTicketComponent } from './admin-ticket/admin-ticket.component';
+import { FormUpdateUserComponent } from './form-update-user/form-update-user.component';
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -93,7 +94,8 @@ const appRoutes: Routes = [
     EmployeCompteComponent,
     ClientCompteComponent,
     AdminStatComponent,
-    AdminTicketComponent
+    AdminTicketComponent,
+    FormUpdateUserComponent
   ],
     imports: [
         BrowserModule,

@@ -1,0 +1,78 @@
+
+<!-- Modal -->
+<div class="modal fade"
+     id="formUpdateUser" data-bs-backdrop="static"
+     data-bs-keyboard="false" tabindex="-1" aria-labelledby="formUpdateUserLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="formUpdateUserLabel">Mes informations</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              <form class="mt-3 was-validated" #f="ngForm" (ngSubmit)="sendInfoUpdate(f)" (keydown.enter)="sendInfoUpdate(f)">
+                <div class="form-floating mb-3">
+                  <select class="form-select" aria-label="Default select example" name="gender" id="gender" [(ngModel)]="civilite">
+                    <option value="Mme." selected="">Mme.</option>
+                    <option value="M.">M.</option>
+                  </select>
+                  <label for="gender" class="element-invisible">Civilité</label>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" name="Nom" id="Nom" required [(ngModel)]="userService.userConnect.nom">
+                  <label for="Nom">Nom</label>
+                  <div class="invalid-feedback">
+                    Champ obligatoire
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" name="Prenom" id="Prenom" required [(ngModel)]="userService.userConnect.prenom">
+                  <label for="Prenom">Prénom</label>
+                  <div class="invalid-feedback">
+                    Champ obligatoire
+                  </div>
+                </div>
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" [formControl]="email" name="Email" id="Email" required [(ngModel)]="userService.userConnect.mail">
+                  <label for="Email">Email</label>
+                  <div class="invalid-feedback">
+                    Champ obligatoire
+                  </div>
+                  <span style="color: red" *ngIf="email.invalid">{{getErrorMessageMail()}}</span>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" name="Adresse" id="Adresse" required [(ngModel)]="userService.userConnect.adresse">
+                  <label for="Adresse">Adresse</label>
+                  <div class="invalid-feedback">
+                    Champ obligatoire
+                  </div>
+                </div>
+
+                <div class="row no-gutters mb-4">
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="number" class="form-control" name="CodePostal" id="CodePostal" required [(ngModel)]="userService.userConnect.code_postal">
+                      <label for="CodePostal">Code Postal</label>
+                    </div>
+                    <div class="invalid-feedback">
+                      Champ obligatoire
+                    </div>
+                  </div>
+                  <div class="col">
+                    <div class="form-floating mb-3">
+                      <input type="text" class="form-control" name="Ville" id="Ville" required [(ngModel)]="userService.userConnect.ville">
+                      <label for="Ville">Ville</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="text-center mb-3">
+                  <button type="submit" class="btn btn-login" [disabled]="f.invalid || email.invalid">Créer mon compte</button>
+                </div>
+              </form>
+
+      </div>
+    </div>
+  </div>
+</div>
