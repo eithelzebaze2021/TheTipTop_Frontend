@@ -3,10 +3,9 @@ import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {ApiService} from "./ApiService";
-import {Employe} from "../models/Employe";
 import {ClientService} from "./ClientService";
 import {EmployeService} from "./EmployeService";
-import {Client} from "../models/Client";
+import {UserService} from "./UserService";
 const optionRequete = {
   headers: new HttpHeaders({
     'Access-Control-Allow-Origin':'*',
@@ -20,7 +19,8 @@ export class VerifyGuardService  extends ApiService implements CanActivate
 {
 
   constructor(private route: Router, protected override httpClient: HttpClient,
-              private employeService: EmployeService, private clientService: ClientService){
+              private employeService: EmployeService, private clientService: ClientService,
+              private userService: UserService){
     super(httpClient)
   }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
@@ -31,12 +31,14 @@ export class VerifyGuardService  extends ApiService implements CanActivate
 
         this.clientService.getClientConnectByUserServicesByToken().subscribe(resp => {
           this.clientService.clientConnect = resp;
+          this.userService.userConnect = resp.user_client;
         })
 
       }else if(localStorage.getItem("who")=="EMPLOYE"){
 
         this.employeService.getEmployeConnectByUserServicesByToken().subscribe(resp => {
           this.employeService.employeConnect = resp;
+          this.userService.userConnect = resp.user_employe;
         })
 
       }
