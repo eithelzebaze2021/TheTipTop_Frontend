@@ -2,31 +2,47 @@
 <div class="text-center pt-4 pb-4">
   <h2 class="font-weight-bold title-color">Les magasins</h2>
 </div>
-<table class="table table-striped">
 
-  <thead>
-  <tr>
-    <th scope="col">id</th>
-    <th scope="col">Nom</th>
-    <th scope="col">Adresse</th>
-    <th scope="col">Code Pos</th>
-    <th scope="col">Ville</th>
-    <th scope="col">Action</th>
-  </tr>
-  </thead>
-  <tbody>
+<mat-form-field style="width:60%; margin-left: 20%">
+  <mat-label>Filtrer la liste</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Test" #input>
+</mat-form-field>
 
-  <tr *ngFor="let mag of listMagasin">
+<div class="mat-elevation-z8">
+  <mat-paginator showFirstLastButtons pageSize="20" style="font-weight: bold" aria-label="Select page of users"></mat-paginator>
+  <table mat-table [dataSource]="dataSource" matSort>
 
-    <th scope="row">{{mag.id_magasin}}</th>
-    <td>{{mag.nomMagasin}}</td>
-    <td>{{mag.adresse}}</td>
-    <td>{{mag.code_postal}}</td>
-    <td>{{mag.ville}}</td>
-    <td><button type="button" class="btn btn-outline-info">Info</button></td>
-  </tr>
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID MAG </th>
+      <td mat-cell *matCellDef="let row"> {{row.idMagasin}} </td>
+    </ng-container>
 
+    <!-- Progress Column -->
+    <ng-container matColumnDef="nom">
+      <th mat-header-cell *matHeaderCellDef> Nom </th>
+      <td mat-cell *matCellDef="let row"> {{row.nomMagasin}} </td>
+    </ng-container>
 
-  </tbody>
+    <!-- Name Column -->
+    <ng-container matColumnDef="ville">
+      <th mat-header-cell *matHeaderCellDef> Ville </th>
+      <td mat-cell *matCellDef="let row"> {{row.ville}} </td>
+    </ng-container>
 
-</table>
+    <ng-container matColumnDef="Action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let row">
+
+        <button mat-mini-fab style="background-color: white"><span class="material-icons" style="color:green">confirmation_number</span></button>
+
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>
+
+<br>

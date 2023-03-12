@@ -20,30 +20,30 @@
                   <label for="gender" class="element-invisible">Civilité</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" name="Nom" id="Nom" required [(ngModel)]="userService.userConnect.nom">
+                  <input type="text" class="form-control" name="Nom" id="Nom" required [(ngModel)]="nom">
                   <label for="Nom">Nom</label>
                   <div class="invalid-feedback">
                     Champ obligatoire
                   </div>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" name="Prenom" id="Prenom" required [(ngModel)]="userService.userConnect.prenom">
+                  <input type="text" class="form-control" name="Prenom" id="Prenom" required [(ngModel)]="prenom">
                   <label for="Prenom">Prénom</label>
                   <div class="invalid-feedback">
                     Champ obligatoire
                   </div>
                 </div>
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" [formControl]="email" name="Email" id="Email" required [(ngModel)]="userService.userConnect.mail">
+                <!--<div class="form-floating mb-3">
+                  <input type="email" class="form-control" [formControl]="email" name="Email" id="Email" required [(ngModel)]="mail">
                   <label for="Email">Email</label>
                   <div class="invalid-feedback">
                     Champ obligatoire
                   </div>
                   <span style="color: red" *ngIf="email.invalid">{{getErrorMessageMail()}}</span>
-                </div>
+                </div>-->
 
                 <div class="form-floating mb-3">
-                  <input type="text" class="form-control" name="Adresse" id="Adresse" required [(ngModel)]="userService.userConnect.adresse">
+                  <input type="text" class="form-control" name="Adresse" id="Adresse" required [(ngModel)]="adresse">
                   <label for="Adresse">Adresse</label>
                   <div class="invalid-feedback">
                     Champ obligatoire
@@ -53,7 +53,7 @@
                 <div class="row no-gutters mb-4">
                   <div class="col">
                     <div class="form-floating mb-3">
-                      <input type="number" class="form-control" name="CodePostal" id="CodePostal" required [(ngModel)]="userService.userConnect.code_postal">
+                      <input type="number" class="form-control" name="CodePostal" id="CodePostal" required [(ngModel)]="code_postal">
                       <label for="CodePostal">Code Postal</label>
                     </div>
                     <div class="invalid-feedback">
@@ -62,13 +62,13 @@
                   </div>
                   <div class="col">
                     <div class="form-floating mb-3">
-                      <input type="text" class="form-control" name="Ville" id="Ville" required [(ngModel)]="userService.userConnect.ville">
+                      <input type="text" class="form-control" name="Ville" id="Ville" required [(ngModel)]="ville">
                       <label for="Ville">Ville</label>
                     </div>
                   </div>
                 </div>
                 <div class="text-center mb-3">
-                  <button type="submit" class="btn btn-login" [disabled]="f.invalid || email.invalid">Créer mon compte</button>
+                  <button type="submit" class="btn btn-login" [disabled]="f.invalid">Créer mon compte</button>
                 </div>
               </form>
 

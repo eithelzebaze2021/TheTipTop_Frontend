@@ -32,14 +32,20 @@ export class VerifyGuardService  extends ApiService implements CanActivate
         this.clientService.getClientConnectByUserServicesByToken().subscribe(resp => {
           this.clientService.clientConnect = resp;
           this.userService.userConnect = resp.user_client;
-        })
+        },(error => {
+          this.route.navigate(['**']);
+          return false;
+        }))
 
       }else if(localStorage.getItem("who")=="EMPLOYE"){
 
         this.employeService.getEmployeConnectByUserServicesByToken().subscribe(resp => {
           this.employeService.employeConnect = resp;
           this.userService.userConnect = resp.user_employe;
-        })
+        },(error => {
+          this.route.navigate(['**']);
+          return false;
+        }))
 
       }
 

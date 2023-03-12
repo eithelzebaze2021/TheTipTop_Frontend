@@ -14,7 +14,7 @@ export class UserService extends ApiService{
   }
 
   getAllUser(){
-    return this.httpClient.get(this.host+"user/getAllUser",this.httpOptions)
+    return this.httpClient.get<Utilisateur[]>(this.host+"user/getAllUser",this.httpOptions)
   }
 
   getUserById(idUser: number){
@@ -26,7 +26,7 @@ export class UserService extends ApiService{
   }
 
   updateUser(U: Utilisateur){
-    return this.httpClient.put(this.host+"user/updateUser",U,this.httpOptions)
+    return this.httpClient.put<boolean>(this.host+"user/updateUser",U,this.httpOptions)
   }
 
   loginUser(userLogin: UserLogin){

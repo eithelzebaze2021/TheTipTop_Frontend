@@ -76,5 +76,11 @@
 
 </div>
 
-<app-form-update-user></app-form-update-user>
+<app-form-update-user [adresse]="clientService.clientConnect.user_client.adresse"
+                      [code_postal] ="clientService.clientConnect.user_client.code_postal"
+                      [mail] ="clientService.clientConnect.user_client.mail"
+                      [nom] ="clientService.clientConnect.user_client.nom"
+                      [prenom] ="clientService.clientConnect.user_client.prenom"
+                      [ville]="clientService.clientConnect.user_client.ville"
+                      [idUser]="clientService.clientConnect.user_client.idUser"></app-form-update-user>
 

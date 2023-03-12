@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit{
               private clientService: ClientService, private employeService: EmployeService) {
   }
   ngOnInit() {
+    localStorage.clear();
   }
 
   sendInfoConnect(f: NgForm){

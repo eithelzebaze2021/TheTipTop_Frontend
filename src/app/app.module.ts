@@ -19,7 +19,7 @@ import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
 import { MentionsLegalesComponent } from './pages/mentions-legales/mentions-legales.component';
 import { CguComponent } from './pages/cgu/cgu.component';
 import { RegisterComponent } from './register/register.component';
-import { registerLocaleData } from '@angular/common';
+import {CommonModule, registerLocaleData} from '@angular/common';
 import * as fr from '@angular/common/locales/fr';
 import { PolitiqueCookiesComponent } from './pages/politique-cookies/politique-cookies.component';
 import { DonneesPersonnellesComponent } from './pages/donnees-personnelles/donnees-personnelles.component';
@@ -41,6 +41,32 @@ import { ClientCompteComponent } from './client-compte/client-compte.component';
 import { AdminStatComponent } from './admin-stat/admin-stat.component';
 import { AdminTicketComponent } from './admin-ticket/admin-ticket.component';
 import { FormUpdateUserComponent } from './form-update-user/form-update-user.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatMenuModule} from "@angular/material/menu";
+import {MatCardModule} from "@angular/material/card";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatTableModule} from "@angular/material/table";
+import {CdkAccordionModule} from "@angular/cdk/accordion";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatIconModule} from "@angular/material/icon";
+import {MatBadgeModule} from "@angular/material/badge";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatSelectModule} from "@angular/material/select";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
+import {MatRadioModule} from "@angular/material/radio";
+import {MatPaginatorIntl, MatPaginatorModule} from "@angular/material/paginator";
+import {MatSortModule} from "@angular/material/sort";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatDivider, MatDividerModule} from "@angular/material/divider";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -98,17 +124,46 @@ const appRoutes: Routes = [
     FormUpdateUserComponent
   ],
     imports: [
+        MatAutocompleteModule,
+        MatButtonModule,
+        MatCheckboxModule,
+        MatDatepickerModule,
+        MatFormFieldModule,
+        MatInputModule,
+        MatRadioModule,
+        MatSelectModule,
+        MatSliderModule,
+        MatSlideToggleModule,
+        BrowserAnimationsModule,
         BrowserModule,
         HttpClientModule,
         RouterModule.forRoot(appRoutes, {
             anchorScrolling: 'enabled'
         }),
         FormsModule,
-        ReactiveFormsModule
+        MatProgressBarModule,
+        MatMenuModule,
+        MatExpansionModule,
+        MatIconModule,
+        MatDialogModule,
+        MatCardModule,
+        MatNativeDateModule,
+        CdkAccordionModule,
+        MatTableModule,
+        MatChipsModule,
+        MatBadgeModule,
+        MatProgressSpinnerModule,
+        ReactiveFormsModule,
+        CommonModule,
+        FormsModule,
+        MatPaginatorModule,
+        MatSortModule,
+        MatDividerModule
 
     ],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
     { provide: HTTP_INTERCEPTORS, useClass :TokenInterceptorService,  multi:true},
+    { provide: MatPaginatorIntl, useClass: AdminClientsComponent },
     { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })

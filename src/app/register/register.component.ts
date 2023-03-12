@@ -14,7 +14,7 @@ import Swal from "sweetalert2";
 export class RegisterComponent implements OnInit{
 
   public userRegister:Utilisateur=new Utilisateur();
-  public tabRole:string[]=[];
+  //public tabRole:string[]=[];
   password:string="";
 
   email = new FormControl('',  [Validators.required,Validators.email]);
@@ -23,14 +23,14 @@ export class RegisterComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.userService.getAllRoleForPublic().subscribe(resp => {
+    /*this.userService.getAllRoleForPublic().subscribe(resp => {
 
       for(let role of resp){
         if(role!="ROLE_ADMIN"){
           this.tabRole.push(role);
         }
       }
-    })
+    })*/
 
 
   }
@@ -48,9 +48,10 @@ export class RegisterComponent implements OnInit{
     }).then((value)=>{
       if(value.isConfirmed){
         this.userRegister.nom = this.civilite+" "+this.userRegister.nom;
+        this.userRegister.role = "ROLE_CLIENT";
 
         this.userService.saveUser(this.userRegister).subscribe(resp => {
-          this.route.navigate(['login']);
+          this.route.navigate(['Login']);
         },error => {
           this.route.navigate(['**']);
         })
