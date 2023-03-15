@@ -8,7 +8,7 @@ export class ApiService{
 
   }
 
-  protected host = 'http://localhost:8095/api-tip-top-G1/';
+  protected host = 'https://tiptopapi.azurewebsites.net/api-tip-top-G1/';
 
   httpOptions = {
     headers: new HttpHeaders({
