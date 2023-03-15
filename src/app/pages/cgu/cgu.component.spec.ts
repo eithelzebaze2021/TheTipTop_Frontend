@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {CguComponent} from "./cgu.component";
 
-import { CguComponent } from './cgu.component';
+
 
 describe('CguComponent', () => {
   let component: CguComponent;

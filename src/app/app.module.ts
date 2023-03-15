@@ -43,7 +43,7 @@ import { AdminTicketComponent } from './admin-ticket/admin-ticket.component';
 import { FormUpdateUserComponent } from './form-update-user/form-update-user.component';
 
 const appRoutes: Routes = [
-  { path: '', component: LandingPageComponent},
+  { path: 'Landing_page', component: LandingPageComponent},
   { path: 'Login',component: LoginComponent},
   { path: 'Client_ticket',component: ClientTicketComponent, canActivate: [VerifyGuardService]},
   { path: 'Client_gain',component: ClientGainComponent, canActivate: [VerifyGuardService]},
