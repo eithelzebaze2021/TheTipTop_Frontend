@@ -36,7 +36,7 @@ export class AdminService extends ApiService{
   }
 
   getAllTicketGain(first: number,last: number){
-    return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketGain/"+first+"/"+last, this.httpOptions)
+    return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketGain", this.httpOptions)
   }
 
 }
