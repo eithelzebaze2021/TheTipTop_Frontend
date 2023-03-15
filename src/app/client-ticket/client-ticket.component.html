@@ -1,3 +1,17 @@
 <app-navbar-client></app-navbar-client>
-
-<p>client-tickets works!</p>
+<div class="text-center pt-4 pb-4" (click)="ajoutTicket()">
+  <button type="button" class="btn btn-outline-secondary">Ajouter un Ticket</button>
+</div>
+<br>
+<mat-card class="example-card" *ngFor="let ticket of tabTicket ">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ticket.numero}}</mat-card-title>
+      <mat-card-subtitle>{{ticket.magasin.adresse}}</mat-card-subtitle>
+      <img mat-card-xl-image [src]="ticket.gain.lienImageGain" >
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    {{ticket.gain.description}}
+  </mat-card-content>
+</mat-card>
