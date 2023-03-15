@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ClientService} from "../service/ClientService";
 import Swal from 'sweetalert2';
+import {Ticket} from "../models/Ticket";
 
 @Component({
   selector: 'app-client-ticket',
