@@ -137,9 +137,7 @@ const appRoutes: Routes = [
         BrowserAnimationsModule,
         BrowserModule,
         HttpClientModule,
-        RouterModule.forRoot(appRoutes, {
-            anchorScrolling: 'enabled'
-        }),
+        RouterModule.forRoot(appRoutes, { onSameUrlNavigation: 'reload' }),
         FormsModule,
         MatProgressBarModule,
         MatMenuModule,
@@ -168,7 +166,4 @@ const appRoutes: Routes = [
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor() {
-    registerLocaleData(fr.default);
-  }
 }
