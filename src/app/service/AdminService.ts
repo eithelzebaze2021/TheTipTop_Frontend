@@ -35,7 +35,7 @@ export class AdminService extends ApiService{
     return this.httpClient.delete(this.host+"client/deleteClient/"+idClient,this.httpOptions)
   }
 
-  getAllTicketGain(first: number,last: number){
+  getAllTicketGain(){
     return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketGain", this.httpOptions)
   }
 
