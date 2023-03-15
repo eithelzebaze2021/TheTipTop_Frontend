@@ -41,7 +41,7 @@ export class AdminTicketComponent {
   }
   ngOnInit() {
 
-    this.adminService.getAllTicketGain(0,30).subscribe(resp=>{
+    this.adminService.getAllTicketGain().subscribe(resp=>{
       this.dataSource=new MatTableDataSource<Ticket>(resp);
       this.dataSource.paginator = this.paginator;
     },error => {
