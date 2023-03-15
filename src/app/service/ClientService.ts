@@ -7,7 +7,7 @@ import {Ticket} from "../models/Ticket";
 @Injectable()
 export class ClientService extends ApiService{
 
-  public clientConnect: Client = new Client();
+ public clientConnect: Client = new Client();
 
   constructor(protected override httpClient:HttpClient) {
     super(httpClient);
@@ -30,8 +30,8 @@ export class ClientService extends ApiService{
 
   }
 
-  getAllTicketClient(idClient: number,first: number,last: number){
-    return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketClient/"+idClient+"/"+first+"/"+last, this.httpOptions)
+  getAllTicketClient(idClient: number){
+    return this.httpClient.get<Ticket[]>(this.host+"ticket/getAllTicketClient/"+idClient, this.httpOptions)
   }
 
   getTicketById(idTicket: number){
@@ -39,7 +39,7 @@ export class ClientService extends ApiService{
   }
 
   saveTicketClient(numTicket:string){
-    return this.httpClient.post(this.host+"ticket/saveTicketClient/"+numTicket,this.clientConnect,this.httpOptions)
+    return this.httpClient.post(this.host+"ticket/saveTicketClient/"+this.clientConnect.idClient+"/"+numTicket,this.clientConnect,this.httpOptions)
   }
 
   getClientConnectByUserServicesByToken() {
