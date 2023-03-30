@@ -67,6 +67,7 @@ import {MatPaginatorIntl, MatPaginatorModule} from "@angular/material/paginator"
 import {MatSortModule} from "@angular/material/sort";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDivider, MatDividerModule} from "@angular/material/divider";
+import {CookieService} from "ngx-cookie-service";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -159,7 +160,7 @@ const appRoutes: Routes = [
         MatDividerModule
 
     ],
-  providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
+  providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,CookieService,
     { provide: HTTP_INTERCEPTORS, useClass :TokenInterceptorService,  multi:true},
     { provide: MatPaginatorIntl, useClass: AdminClientsComponent },
     { provide: LOCALE_ID, useValue: 'fr-FR'}],

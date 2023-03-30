@@ -121,3 +121,20 @@
             </div>
         </div>
     </div>
+<div class="cookiebox" *ngIf="cookiebox">
+  <div class="txtbox">
+    <span>
+      Ce site web utilise des cookies. En continuant à utiliser ce site Web, vous consentez à l'utilisation de cookies.
+      <a routerLink="/Politique-cookies" class="me-4 mb-1">En savoir plus ...</a>
+    </span>
+
+  </div>
+
+  <div btnbox>
+    <button  class="btn1" (click)="Allow()"> Tout accepter</button>
+    <button class="btn2" (click)="Decline()">Tout refuser</button>
+
+  </div>
+
+</div>
+
