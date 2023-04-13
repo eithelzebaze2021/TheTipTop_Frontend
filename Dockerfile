@@ -2,8 +2,8 @@
 FROM node:latest AS node
 WORKDIR /app
 COPY . .
-RUN npm install --force
-RUN npm run build --prod
+RUN npm install
+RUN npm run build --configuration=production
 
 #stage 2
 FROM nginx:alpine

@@ -1,41 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 :root {
-    --dark-moss-green: #3b5f1cff;
-    --apple-green: #94c019ff;
-    --marigold: #ec9f05ff;
-    --mint-cream: #e5ece9ff;
-    --baby-powder: #fffffcff;
+  --dark-moss-green: #3b5f1cff;
+  --apple-green: #94c019ff;
+  --marigold: #ec9f05ff;
+  --mint-cream: #e5ece9ff;
+  --baby-powder: #fffffcff;
 }
 
 * {
-    font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn-login {
-    background-color: var(--dark-moss-green);
-    color: var(--baby-powder) !important;
-    border-radius: 50px;
-    box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
-    color: #fff;
-    cursor: pointer;
-    font-size: 16px;
-    font-weight: 400;
-    outline: none;
-    text-align: center;
-    transform: translateY(0);
-    transition: transform 150ms, box-shadow 150ms;
-    user-select: none;
-    -webkit-user-select: none;
-    touch-action: manipulation;
+  background-color: var(--dark-moss-green);
+  color: var(--baby-powder) !important;
+  border-radius: 50px;
+  box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  text-align: center;
+  transform: translateY(0);
+  transition: transform 150ms, box-shadow 150ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 
 .btn-login:hover {
-    background-color: var(--apple-green);
+  background-color: var(--apple-green);
 }
 
 .title-color{
-    color: var(--apple-green);
-    }
+  color: var(--apple-green);
+}
 
 .login-form {
   width: 500px;
