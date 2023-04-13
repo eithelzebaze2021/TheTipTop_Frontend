@@ -7,5 +7,5 @@ RUN npm run build --prod
 
 #stage 2
 FROM nginx:alpine
-COPY --from=node /app/dist/tiptop  /usr/share/nginx/html
+COPY --from=node /app/dist/the-tip-top  /usr/share/nginx/html
 
