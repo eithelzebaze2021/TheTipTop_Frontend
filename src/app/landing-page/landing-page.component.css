@@ -21,3 +21,46 @@
 .z-index{
   z-index: 2;
 }
+.cookiebox{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.txtbox{
+  color: white;
+  display: flex;
+  padding-left: 10px;
+
+}
+
+.btn1{
+  color: white;
+  background-color: green;
+  border: none;
+  padding: 5px;
+  margin-right: 2px;
+
+
+
+}
+
+.btn2{
+  color: green;
+  background-color: white;
+  border: none;
+  padding: 5px;
+  margin-right: 2px;
+
+
+
+
+}
+
+
