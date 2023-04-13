@@ -67,23 +67,24 @@ import {MatPaginatorIntl, MatPaginatorModule} from "@angular/material/paginator"
 import {MatSortModule} from "@angular/material/sort";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDivider, MatDividerModule} from "@angular/material/divider";
+import {CookieService} from "ngx-cookie-service";
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
   { path: 'Login',component: LoginComponent},
-  { path: 'Client_ticket',component: ClientTicketComponent, canActivate: [VerifyGuardService]},
-  { path: 'Client_gain',component: ClientGainComponent, canActivate: [VerifyGuardService]},
-  {path:'Client_compte',component:ClientCompteComponent, canActivate: [VerifyGuardService]},
-  { path: 'Employe_client',component: EmployeClientComponent, canActivate: [VerifyGuardService]},
-  {path:'Employe_ticket',component:EmployeTicketComponent, canActivate: [VerifyGuardService]},
-  {path:'Employe_compte',component:EmployeCompteComponent, canActivate: [VerifyGuardService]},
-  { path: 'Admin_employes',component: AdminEmployesComponent, canActivate: [VerifyGuardService]},
-  {path:'Admin_gain',component:AdminGainComponent, canActivate: [VerifyGuardService]},
-  {path:'Admin_magasin',component:AdminMagasinComponent, canActivate: [VerifyGuardService]},
-  {path:'Admin_tirage',component:AdminTirageComponent, canActivate: [VerifyGuardService]},
-  { path: 'Admin_clients',component: AdminClientsComponent, canActivate: [VerifyGuardService]},
-  {path:'Admin_stat',component:AdminStatComponent, canActivate: [VerifyGuardService]},
-  { path: 'Admin_ticket',component:AdminTicketComponent, canActivate: [VerifyGuardService]},
+  { path: 'Client/ticket',component: ClientTicketComponent, canActivate: [VerifyGuardService]},
+  { path: 'Client/gain',component: ClientGainComponent, canActivate: [VerifyGuardService]},
+  {path:'Client/compte',component:ClientCompteComponent, canActivate: [VerifyGuardService]},
+  { path: 'Employe/client',component: EmployeClientComponent, canActivate: [VerifyGuardService]},
+  {path:'Employe/ticket',component:EmployeTicketComponent, canActivate: [VerifyGuardService]},
+  {path:'Employe/compte',component:EmployeCompteComponent, canActivate: [VerifyGuardService]},
+  { path: 'Admin/employes',component: AdminEmployesComponent, canActivate: [VerifyGuardService]},
+  {path:'Admin/gain',component:AdminGainComponent, canActivate: [VerifyGuardService]},
+  {path:'Admin/magasin',component:AdminMagasinComponent, canActivate: [VerifyGuardService]},
+  {path:'Admin/tirage',component:AdminTirageComponent, canActivate: [VerifyGuardService]},
+  { path: 'Admin/clients',component: AdminClientsComponent, canActivate: [VerifyGuardService]},
+  {path:'Admin/stat',component:AdminStatComponent, canActivate: [VerifyGuardService]},
+  { path: 'Admin/ticket',component:AdminTicketComponent, canActivate: [VerifyGuardService]},
   { path: 'CGU',component: CguComponent},
   { path: 'Mentions-legales',component: MentionsLegalesComponent},
   { path: 'Register',component: RegisterComponent},
@@ -159,7 +160,7 @@ const appRoutes: Routes = [
         MatDividerModule
 
     ],
-  providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,
+  providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,CookieService,
     { provide: HTTP_INTERCEPTORS, useClass :TokenInterceptorService,  multi:true},
     { provide: MatPaginatorIntl, useClass: AdminClientsComponent },
     { provide: LOCALE_ID, useValue: 'fr-FR'}],

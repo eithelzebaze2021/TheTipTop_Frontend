@@ -45,13 +45,13 @@ export class LoginComponent implements OnInit{
           showConfirmButton: false,
           timer: 1500
         }).then(() => {if(resp.user.role=="ROLE_ADMIN"){
-          this.route.navigate(['Admin_clients']);
+          this.route.navigate(['Admin/clients']);
             localStorage.setItem('who',"ADMIN");
         }else if(resp.user.role=="ROLE_CLIENT"){
             this.userService.userConnect=resp.user;
             this.clientService.getClientByIdUser(resp.user.idUser).subscribe(resp => {
               this.clientService.clientConnect=resp;
-              this.route.navigate(['Client_ticket']);
+              this.route.navigate(['Client/ticket']);
               localStorage.setItem('who',"CLIENT");
             })
 
@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit{
             this.userService.userConnect=resp.user;
             this.employeService.getEmployeByIdUser(resp.user.idUser).subscribe(resp => {
               this.employeService.employeConnect=resp;
-              this.route.navigate(['Employe_client']);
+              this.route.navigate(['Employe/client']);
               localStorage.setItem('who',"EMPLOYE");
             })
         }}
