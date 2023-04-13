@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit{
           showConfirmButton: false,
           timer: 1500
         }).then(() => {if(resp.user.role=="ROLE_ADMIN"){
-          this.route.navigate(['Admin/clients']);
+          this.route.navigate(['Admin']);
             localStorage.setItem('who',"ADMIN");
         }else if(resp.user.role=="ROLE_CLIENT"){
             this.userService.userConnect=resp.user;

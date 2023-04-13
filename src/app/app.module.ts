@@ -19,8 +19,8 @@ import {AdminClientsComponent} from "./admin-clients/admin-clients.component";
 import { MentionsLegalesComponent } from './pages/mentions-legales/mentions-legales.component';
 import { CguComponent } from './pages/cgu/cgu.component';
 import { RegisterComponent } from './register/register.component';
-import {CommonModule, registerLocaleData} from '@angular/common';
-import * as fr from '@angular/common/locales/fr';
+import {CommonModule, HashLocationStrategy, LocationStrategy, registerLocaleData} from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
 import { PolitiqueCookiesComponent } from './pages/politique-cookies/politique-cookies.component';
 import { DonneesPersonnellesComponent } from './pages/donnees-personnelles/donnees-personnelles.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -68,6 +68,9 @@ import {MatSortModule} from "@angular/material/sort";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDivider, MatDividerModule} from "@angular/material/divider";
 import {CookieService} from "ngx-cookie-service";
+import { AppRoutingModule } from './app-routing.module';
+
+registerLocaleData(localeFr);
 
 const appRoutes: Routes = [
   { path: '', component: LandingPageComponent},
@@ -82,7 +85,7 @@ const appRoutes: Routes = [
   {path:'Admin/gain',component:AdminGainComponent, canActivate: [VerifyGuardService]},
   {path:'Admin/magasin',component:AdminMagasinComponent, canActivate: [VerifyGuardService]},
   {path:'Admin/tirage',component:AdminTirageComponent, canActivate: [VerifyGuardService]},
-  { path: 'Admin/clients',component: AdminClientsComponent, canActivate: [VerifyGuardService]},
+  { path: 'Admin',component: AdminClientsComponent, canActivate: [VerifyGuardService]},
   {path:'Admin/stat',component:AdminStatComponent, canActivate: [VerifyGuardService]},
   { path: 'Admin/ticket',component:AdminTicketComponent, canActivate: [VerifyGuardService]},
   { path: 'CGU',component: CguComponent},
@@ -157,12 +160,14 @@ const appRoutes: Routes = [
         FormsModule,
         MatPaginatorModule,
         MatSortModule,
-        MatDividerModule
+        MatDividerModule,
+        AppRoutingModule
 
     ],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,CookieService,
     { provide: HTTP_INTERCEPTORS, useClass :TokenInterceptorService,  multi:true},
     { provide: MatPaginatorIntl, useClass: AdminClientsComponent },
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     { provide: LOCALE_ID, useValue: 'fr-FR'}],
   bootstrap: [AppComponent]
 })

@@ -11,15 +11,15 @@
       <ul class="navbar-nav align-items-center">
         <li class="nav-item me-3">
           <a [ngClass]="{
-          'nav-link active': this.route.url==='/Admin/clients',
-          'nav-link': this.route.url!=='/Admin/clients'
-          }"  routerLink="/Admin_clients">Clients</a>
+          'nav-link active': this.route.url==='/Admin',
+          'nav-link': this.route.url!=='/Admin'
+          }"  routerLink="/Admin">Clients</a>
         </li>
         <li class="nav-item me-3">
           <a [ngClass]="{
           'nav-link active': this.route.url==='/Admin/gain',
           'nav-link': this.route.url!=='/Admin/gain'
-          }" routerLink="/Admin_gain">Gains</a>
+          }" routerLink="/Admin/gain">Gains</a>
         </li>
         <li class="nav-item me-3">
           <a [ngClass]="{
