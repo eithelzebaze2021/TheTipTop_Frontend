@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit{
             this.userService.userConnect=resp.user;
             this.employeService.getEmployeByIdUser(resp.user.idUser).subscribe(resp => {
               this.employeService.employeConnect=resp;
-              this.route.navigate(['Employe/client']);
+              this.route.navigate(['Employe/ticket']);
               localStorage.setItem('who',"EMPLOYE");
             })
         }}

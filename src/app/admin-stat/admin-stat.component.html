@@ -2,4 +2,17 @@
 <div class="text-center pt-4 pb-4" id="gains">
   <h2 class="font-weight-bold title-color">Les statistiques</h2>
 </div>
-<p>admin-stat works!</p>
+
+<mat-card style="width:70%; margin-bottom: 5%; margin-left:10%; background-color: ghostwhite">
+  <mat-card-header>
+    <mat-card-title>Décompte par magasin des gains</mat-card-title>
+  </mat-card-header>
+  <canvas style="background-color: white" id="figure1">{{chartfigure1}}</canvas>
+
+  <mat-card-content style="margin-top: 3%;">
+    <ul style="display: flex; flex-direction: row; width: 100%; justify-content: space-around;flex-wrap: wrap">
+      <li style="margin-left: 5%" *ngFor="let elt of tabMagasinString; let indexElt=index;" >{{somme([dataFigure1[indexElt],dataFigure1Bis[indexElt]])}} pour {{elt}}</li>
+    </ul>
+  </mat-card-content>
+
+</mat-card>

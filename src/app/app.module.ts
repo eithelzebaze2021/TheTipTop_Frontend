@@ -1,4 +1,4 @@
-import {LOCALE_ID, NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule, isDevMode} from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
@@ -11,7 +11,6 @@ import {ClientService} from "./service/ClientService";
 import {EmployeService} from "./service/EmployeService";
 import {UserService} from "./service/UserService";
 import {VerifyGuardService} from "./service/VerifyGuardService";
-import {EmployeClientComponent} from "./employe-client/employe-client.component";
 import {ClientGainComponent} from "./client-gain/client-gain.component";
 import {ClientTicketComponent} from "./client-ticket/client-ticket.component";
 import {AdminEmployesComponent} from "./admin-employes/admin-employes.component";
@@ -69,6 +68,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatDivider, MatDividerModule} from "@angular/material/divider";
 import {CookieService} from "ngx-cookie-service";
 import { AppRoutingModule } from './app-routing.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 registerLocaleData(localeFr);
 
@@ -78,7 +78,6 @@ const appRoutes: Routes = [
   { path: 'Client/ticket',component: ClientTicketComponent, canActivate: [VerifyGuardService]},
   { path: 'Client/gain',component: ClientGainComponent, canActivate: [VerifyGuardService]},
   {path:'Client/compte',component:ClientCompteComponent, canActivate: [VerifyGuardService]},
-  { path: 'Employe/client',component: EmployeClientComponent, canActivate: [VerifyGuardService]},
   {path:'Employe/ticket',component:EmployeTicketComponent, canActivate: [VerifyGuardService]},
   {path:'Employe/compte',component:EmployeCompteComponent, canActivate: [VerifyGuardService]},
   { path: 'Admin/employes',component: AdminEmployesComponent, canActivate: [VerifyGuardService]},
@@ -104,7 +103,6 @@ const appRoutes: Routes = [
     LandingPageComponent,
     ClientTicketComponent,
     ClientGainComponent,
-    EmployeClientComponent,
     AdminEmployesComponent,
     AdminClientsComponent,
     LoginComponent,
@@ -161,7 +159,13 @@ const appRoutes: Routes = [
         MatPaginatorModule,
         MatSortModule,
         MatDividerModule,
-        AppRoutingModule
+        AppRoutingModule,
+        ServiceWorkerModule.register('ngsw-worker.js', {
+          enabled: !isDevMode(),
+          // Register the ServiceWorker as soon as the application is stable
+          // or after 30 seconds (whichever comes first).
+          registrationStrategy: 'registerWhenStable:30000'
+        })
 
     ],
   providers: [ ClientService, EmployeService, UserService, VerifyGuardService, GainService,AdminService,CookieService,

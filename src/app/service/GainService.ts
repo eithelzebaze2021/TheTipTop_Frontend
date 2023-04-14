@@ -2,6 +2,7 @@ import {ApiService} from "./ApiService";
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Gain} from "../models/Gain";
+import {Ticket} from "../models/Ticket";
 
 @Injectable()
 export class GainService extends ApiService{
@@ -24,5 +25,9 @@ export class GainService extends ApiService{
 
   deleteGain(idGain: number){
     return this.httpClient.delete(this.host+"gain/deleteGainById/"+idGain, this.httpOptions)
+  }
+
+  updateTicketGain(t: Number) {
+    return this.httpClient.get(this.host+"ticket/updateTicket/"+t, this.httpOptions)
   }
 }

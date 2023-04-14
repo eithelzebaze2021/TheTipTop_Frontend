@@ -2,7 +2,7 @@
 FROM node:latest AS node
 WORKDIR /app
 COPY . .
-RUN npm install
+RUN npm --force install
 RUN npm run build --prod
 
 #stage 2

@@ -1,5 +1,5 @@
 {
-  "name": "tiptop",
+  "name": "TheTipTop",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -20,7 +20,9 @@
     "@angular/platform-browser": "^15.0.0",
     "@angular/platform-browser-dynamic": "^15.0.0",
     "@angular/router": "^15.0.0",
+    "@angular/service-worker": "^15.1.7",
     "angular": "^1.8.3",
+    "chart.js": "^4.2.1",
     "jwt-decode": "^3.1.2",
     "ngx-cookie-service": "^15.0.0",
     "rxjs": "~7.5.0",
